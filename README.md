@@ -1,1 +1,1 @@
-<img width="1896" height="915" alt="YNI" src="https://github.com/user-attachments/assets/22ef2910-5aa1-4907-ae65-bf9635c038ac" />
+<img width="1917" height="822" alt="Screenshot 2025-07-31 124403" src="https://github.com/user-attachments/assets/95981d9d-018c-46fe-bf36-e36cb49660d7" />
