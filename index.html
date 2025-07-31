@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yaseen Nexus Institute</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Arial', sans-serif; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/background.jpg') no-repeat center center/cover; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/background.jpg') no-repeat center center/cover;
+      color: #fff;
+    }
 
-   .header {
+    .header {
       position: sticky;
       top: 0;
       z-index: 999;
@@ -18,10 +23,20 @@
       align-items: center;
       padding: 1rem 2rem;
       background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/background.jpg') no-repeat center center/cover;
-      box-shadow: none;
     }
 
-    .logo { font-weight: bold; font-size: 1.5rem; color: aliceblue; }
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: aliceblue;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
 
     .navbar ul {
       display: flex;
@@ -29,7 +44,11 @@
       gap: 1rem;
     }
 
-    .navbar a { text-decoration: none; color: white; font-weight: bold; }
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
 
     .header-right {
       display: flex;
@@ -46,17 +65,19 @@
     }
 
     .hero {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                  url('assets/1.png') no-repeat center center/cover;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/1.png') no-repeat center center/cover;
       height: 80vh;
-      color: rgb(253, 252, 252);
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
 
-    .hero-content h1 { font-size: 3rem; margin: 1rem 0; animation: fadeIn 2s ease-in-out; }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin: 1rem 0;
+      animation: fadeIn 2s ease-in-out;
+    }
 
     .read-more-btn {
       background: #4CAF50;
@@ -71,50 +92,108 @@
       display: flex;
       justify-content: center;
       background: #856755;
-      color: white;
       padding: 2rem;
       gap: 3rem;
+      flex-wrap: wrap;
     }
 
-    .feature-item { text-align: center; }
+    .feature-item {
+      text-align: center;
+    }
 
     .feature-item i {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-  @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@media (max-width: 768px) {
-  .header, .navbar ul, .header-right, .features {
-    flex-direction: column;
-    align-items: center;
-  }
-  .navbar ul {
-    gap: 0.5rem;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .features {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .feature-item {
-    flex: 1 1 100%;
-  }
-}
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .stylish-box {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .stylish-box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .stylish-box .details {
+      margin-top: 1rem;
+      display: none;
+      text-align: left;
+      color: #444;
+    }
+
+    .stylish-box h2 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .stylish-box h3 {
+      color: #4CAF50;
+      margin-top: 1rem;
+    }
+
+    .stylish-box img {
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .toggle-text {
+      font-style: italic;
+      color: #888;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .header { flex-wrap: wrap; }
+      .hamburger { display: block; }
+      .navbar { width: 100%; display: none; }
+      .navbar.active { display: block; }
+      .navbar ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 1rem;
+      }
+      .header-right {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        width: 100%;
+        align-items: flex-start;
+      }
+      .hero-content h1 { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
 
 <header class="header">
   <div class="logo">
-      <img src="assets/Logo.png" alt="Yaseen Nexus Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
-      Yaseen Nexus Institute
-    </div>
-  <nav class="navbar">
+    <img src="assets/Logo.png" alt="Yaseen Nexus Logo">
+    Yaseen Nexus Institute
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <nav class="navbar" id="navbar">
     <ul>
       <li><a href="#">Home |</a></li>
       <li><a href="#courses">Courses |</a></li>
@@ -123,16 +202,14 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- <div class="header-right">
-  <a href="https://wa.me/923334665221?text=Hi%20I%20want%20to%20enroll%20in%20your%20course" target="_blank" class="contact-btn">
-    <i class="fas fa-phone"></i> +92 333 4665221
-  </a>
-  <a href="https://wa.me/923334665221?text=Hi%20I%20want%20to%20enroll%20in%20your%20course" target="_blank"
-     class="contact-btn" style="background: red; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold;">
-    Enroll Now
-  </a>
-</div>
-
+  <div class="header-right">
+    <a href="https://wa.me/923334665221?text=Hi%20I%20want%20to%20enroll%20in%20your%20course" target="_blank" class="contact-btn">
+      <i class="fas fa-phone"></i> +92 333 4665221
+    </a>
+    <a href="https://wa.me/923334665221?text=Hi%20I%20want%20to%20enroll%20in%20your%20course" target="_blank" class="contact-btn" style="background: red; font-weight: bold;">
+      Enroll Now
+    </a>
+  </div>
 </header>
 
 <section class="hero">
@@ -159,101 +236,85 @@
 </section>
 
 <section id="courses" style="padding: 2rem;">
-  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-    <div onclick="toggleDetails('course1')" style="background: rgb(254, 233, 233); padding: 1rem; cursor: pointer; width: 300px; border-radius: 10px; transition: all 0.3s ease;">
-      <h2>Research Methodology Course</h2>
-      <p class="toggle-text">Tap for more Details</p>
-     <div id="course1" style="display: none; padding-top: 1rem;">
-
-      <div style="margin-top: 1rem;">
-    <h3 style="margin-bottom: 0.5rem;">📌 Course Features:</h3>
-    <ul style="margin-left: 1rem;">
-      <li> One-month online course via Zoom.</li>
-      <li> Total 8 Classes (2 Classes per week).</li>
-      <li> Recordings & Slides provided.</li>
-      <li> E-certificate.</li>
-      <li> 550+ student community.</li>
-    </ul>
-  </div>
-
-  <div style="margin-top: 1.5rem;">
-    <h3 style="margin-bottom: 0.5rem;">👨‍🏫 Mentor:</h3>
-    <p><strong>Dr Yaseen Khan</strong><br>
-      DPT (KMU), MS OMPT (RIU)<br>
-      CDN, CKT, CHR<br>
-      Authored 15+ Research Papers
-    </p>
-  </div>
-  <br>
-  <img src="assets/Course_Outline.jpeg" style="width: 100%; border-radius: 5px;">
-  <img src="assets/RMC_Benefits.png" style="width: 100%; border-radius: 5px;">
-  
-  
-
-  <p style="margin-top: 1rem;"><strong>Contact:</strong> +92 333 4665221</p>
-</div>
-
+  <div onclick="toggleDetails('course1')" class="stylish-box">
+    <h2>Research Methodology Course</h2>
+    <p class="toggle-text">Tap for more Details</p>
+    <div id="course1" class="details">
+      <h3>📌 Course Features:</h3>
+      <ul>
+        <li>One-month online course via Zoom.</li>
+        <li>Total 8 Classes (2 Classes per week).</li>
+        <li>Recordings & Slides provided.</li>
+        <li>E-certificate.</li>
+        <li>550+ student community.</li>
+      </ul>
+      <h3>👨‍🏫 Mentor:</h3>
+      <p><strong>Dr Yaseen Khan</strong><br>DPT (KMU), MS OMPT (RIU)<br>CDN, CKT, CHR<br>Authored 15+ Research Papers</p>
+      <img src="assets/Course_Outline.jpeg" style="width: 100%;">
+      <img src="assets/RMC_Benefits.png" style="width: 100%;">
+      <p style="margin-top: 1rem;"><strong>Contact:</strong> +92 333 4665221</p>
     </div>
   </div>
 </section>
 
 <section id="about_us" style="padding: 2rem;">
-  <div onclick="toggleDetails('aboutDetails')" style="max-width: 300px; margin: auto; background: rgb(254, 233, 233); padding: 1rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">
-    <h2 style="text-align: center;">About Us</h2>
-    <p  style="text-align: center;" class="toggle-text">Tap for more Details</p>
-    <div id="aboutDetails" style="display: none; padding-top: 1rem;">
+  <div onclick="toggleDetails('aboutDetails')" class="stylish-box">
+    <h2>About Us</h2>
+    <p class="toggle-text">Tap for more Details</p>
+    <div id="aboutDetails" class="details">
       <p><b>Yaseen Nexus Institute</b> was founded on 17th August 2024 by <b>Dr. Yaseen Khan and Abdul Haseeb (Software Engineer)</b>.<br><br>
-      We offer a <b>Research Methodology Course</b>, a structured 1-month program with two live classes per week conducted via Zoom.<br> <br>
-      Participants receive recordings and lecture slides for each session.<br> <br>
-      Upon successful completion, students are awarded a Course Completion Certificate.<br><br>
-      Join our growing community of 500+ successful students and researchers.<br><br>
-      <b>In addition to training, we provide:</b></p><br>
-      
-        <b>Research Services:</b> Proposal writing, thesis writing, research paper writing.<br>
-        <b>Development Services:</b> Mobile app development, website development.<br>
-        <b>Marketing Services:</b> Social media management and Meta Ads services.<br>
-        <br>
-        <b>Facebook Page:</b> Yaseen Nexus Institute
-      
+      We offer a <b>Research Methodology Course</b>, a structured 1-month program with two live classes per week conducted via Zoom.<br><br>
+      Participants receive recordings and lecture slides for each session. Upon successful completion, students are awarded a Course Completion Certificate.<br><br>
+      Join our growing community of 500+ successful students and researchers.</p><br>
+      <b>Research Services:</b> Proposal writing, thesis writing, research paper writing.<br>
+      <b>Development Services:</b> Mobile app & website development.<br>
+      <b>Marketing Services:</b> Social media & Meta Ads.<br><br>
+      <b>Facebook Page:</b> Yaseen Nexus Institute
     </div>
   </div>
 </section>
+
 <section id="contact" style="padding: 2rem;">
-  <div onclick="toggleDetails('contactdetails')" style="max-width: 300px; margin: auto; background: rgb(254, 233, 233); padding: 1rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease;">
-    <h2 style="text-align: center;">Contact</h2>
-    <p  style="text-align: center;" class="toggle-text">Tap for more Details</p>
-    <div id="contactdetails" style="display: none; padding-top: 1rem;">
-      <p style="text-align: center;">   <b>Facebook Page:</b> Yaseen Nexus Institute |       
-         <b>WhatsApp:</b> +92 333 4665221 <b>or</b> +92 331 577902     </p>
+  <div onclick="toggleDetails('contactdetails')" class="stylish-box">
+    <h2>Contact</h2>
+    <p class="toggle-text">Tap for more Details</p>
+    <div id="contactdetails" class="details">
+      <p><b>Facebook Page:</b> Yaseen Nexus Institute<br>
+         <b>WhatsApp:</b> +92 333 4665221 or +92 331 577902</p>
     </div>
   </div>
 </section>
 
 <script>
-const text = "Welcome to Yaseen Nexus Institute";
-let index = 0;
-function typeWriter() {
-  if (index < text.length) {
-    document.getElementById("typewriter").innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeWriter, 100);
+  const text = "Welcome to Yaseen Nexus Institute";
+  let index = 0;
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100);
+    }
   }
-}
-window.onload = typeWriter;
+  window.onload = typeWriter;
 
-function toggleDetails(id) {
-  var el = document.getElementById(id);
-  var parent = el.parentElement;
-  if (el.style.display === "none") {
-    el.style.display = "block";
-    el.previousElementSibling?.classList?.contains("toggle-text") && (el.previousElementSibling.style.display = "none");
-    parent.style.maxWidth = "800px";
-  } else {
-    el.style.display = "none";
-    el.previousElementSibling?.classList?.contains("toggle-text") && (el.previousElementSibling.style.display = "block");
-    parent.style.maxWidth = "300px";
+  function toggleDetails(id) {
+    var el = document.getElementById(id);
+    var parent = el.parentElement;
+    if (el.style.display === "none" || el.style.display === "") {
+      el.style.display = "block";
+      el.previousElementSibling?.classList?.contains("toggle-text") && (el.previousElementSibling.style.display = "none");
+      parent.style.maxWidth = "800px";
+    } else {
+      el.style.display = "none";
+      el.previousElementSibling?.classList?.contains("toggle-text") && (el.previousElementSibling.style.display = "block");
+      parent.style.maxWidth = "300px";
+    }
   }
-}
+
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("active");
+  }
 </script>
+
 </body>
 </html>
